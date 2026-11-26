@@ -7,11 +7,12 @@ test.describe("Login test", () => {
   test("Login with valid credintail", async ({page})=>{
     await page.locator("#TxtAdminUserId").fill("vishwak@arthasystems.com");
     await page.locator("#TxtAdminPassword").fill("welcome");
-    await page.locator("button[type='submit']").click();
-  })
+      })
   test("Login with invalid credintial", async ({page})=>{
     await page.locator("#TxtAdminUserId").fill("invalid@arthasystems.com");
     await page.locator("#TxtAdminPassword").fill("invalid");
+      })
+  test.afterEach(async ({page})=>{
     await page.locator("button[type='submit']").click();
   })
 })
