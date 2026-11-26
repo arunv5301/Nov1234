@@ -9,4 +9,9 @@ test.describe("Login test", () => {
     await page.locator("#TxtAdminPassword").fill("welcome");
     await page.locator("button[type='submit']").click();
   })
+  test("Login with invalid credintial", async ({page})=>{
+    await page.locator("#TxtAdminUserId").fill("invalid@arthasystems.com");
+    await page.locator("#TxtAdminPassword").fill("invalid");
+    await page.locator("button[type='submit']").click();
+  })
 })
