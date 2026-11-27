@@ -5,7 +5,7 @@ on:
   pull_request:
     branches: [ main, master ]
   schedule:
-    - cron: '45 2 * * *' # Runs every day at midnight
+    - cron: '45 2 1 * *' # Runs every day at midnight
 jobs:
   test:
     timeout-minutes: 60
@@ -18,7 +18,7 @@ jobs:
     - name: Install dependencies
       run: npm ci
     - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
+      run: npx playwright install --with-deps chromium
     - name: Run Playwright tests
       run: npx playwright test
     - uses: actions/upload-artifact@v4

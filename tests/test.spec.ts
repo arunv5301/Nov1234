@@ -11,6 +11,6 @@ test.describe("Login test", ()=>{
         console.log("Login Valid credential");
     })
     test("Login with invalid credentail", async()=>{
-        console.log("Login Invalid credentail");
+        console.log("Login fail with Invalid credentail");
     })
 })

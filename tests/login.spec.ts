@@ -1,18 +1,19 @@
 import test from "@playwright/test";
 
-test.describe("Login test", () => {
-  test.beforeEach(async ({page})=>{
-    await page.goto("https://retaildemo.artha.com/admin/login");
+test.describe("Login Test", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto("https://studio149.artha.com/admin/");
   })
-  test("Login with valid credintail", async ({page})=>{
-    await page.locator("#TxtAdminUserId").fill("vishwak@arthasystems.com");
-    await page.locator("#TxtAdminPassword").fill("welcome");
-      })
-  test("Login with invalid credintial", async ({page})=>{
-    await page.locator("#TxtAdminUserId").fill("invalid@arthasystems.com");
-    await page.locator("#TxtAdminPassword").fill("invalid");
-      })
-  test.afterEach(async ({page})=>{
-    await page.locator("button[type='submit']").click();
+  test.afterEach(async ({ page }) => {
+    await page.locator("[id='BtLogin']").click();
   })
-})
+  test("Login with valid credentials", async ({ page }) => {
+    await page.getByPlaceholder('Email').fill('vishwak@arthasystems.com');
+    await page.getByPlaceholder('Password').fill('welcome');
+
+  });
+  test("Login with invalid credentials", async ({ page }) => {
+    await page.getByPlaceholder('Email').fill('vishwak1@arthasystems.com');
+    await page.getByPlaceholder('Password').fill('welcome123');
+  })
+});
