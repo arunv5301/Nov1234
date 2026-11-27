@@ -14,6 +14,6 @@ test.describe("Login Test", () => {
   });
   test("Login with invalid credentials", async ({ page }) => {
     await page.getByPlaceholder('Email').fill('vishwak1@arthasystems.com');
-    await page.getByPlaceholder('Password').fill('welcome123');
+    await page.getByPlaceholder('Password').fill('welcome@123');
   })
 });
